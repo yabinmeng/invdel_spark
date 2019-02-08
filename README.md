@@ -18,5 +18,5 @@ The program is written is developed as a Spark job that can be submitted to a DS
 
 The program is develoepd using IntelliJ IDEA CE as a Scala sbt project. The project structure in Intellij is as below:
 <p>
-  <img src="https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png" width="350" alt="IntelliJ Project Structure">
+  <img src="https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png" width="300" alt="IntelliJ Project Structure">
 </p>
