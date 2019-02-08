@@ -18,3 +18,5 @@ The program is written is developed as a Spark job that can be submitted to a DS
 
 The program is develoepd using IntelliJ IDEA CE as a Scala sbt project. The project structure in Intellij is as below:
 
+![IntelliJ Project Structure](https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png)
+
