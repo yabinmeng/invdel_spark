@@ -12,3 +12,9 @@ For **facility** table, there're 2 non-key columns called **division** and **sto
 
 The goal is to delete all inventory items that belong to a certain divsion and/or store.
 
+# Program Overview
+
+The program is written is developed as a Spark job that can be submitted to a DSE Anlytics cluster for execution. Data stored in C* table is read/updated/delted in Spark by utilizing Spark-Cassandra connector APIs.
+
+The program is develoepd using IntelliJ IDEA CE as a Scala sbt project. The project structure in Intellij is as below:
+
