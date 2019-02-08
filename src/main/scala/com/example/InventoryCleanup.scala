@@ -8,10 +8,10 @@ import org.apache.spark.sql.cassandra._
 
 object InventoryCleanup extends App {
 
-  val inv_keyspace = "inventory_balance"
-  val facility_detail_tbl = "facility_detail_by_facility_id"
-  val inventory_tbl = "current_item_balance_by_base_upc"
-  val dseSparkHostIp = "172.31.95.157"
+  val inv_keyspace = "<C*_keyspace_name>"
+  val facility_detail_tbl = "<C*_facility_table_name>"
+  val inventory_tbl = "<C*_inventory_table_name>"
+  val dseSparkHostIp = "<DSE_Spark_Node_IP>"
 
 
   val usage = """
