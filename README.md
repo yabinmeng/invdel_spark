@@ -17,6 +17,6 @@ The goal is to delete all inventory items that belong to a certain divsion and/o
 The program is written is developed as a Spark job that can be submitted to a DSE Anlytics cluster for execution. Data stored in C* table is read/updated/delted in Spark by utilizing Spark-Cassandra connector APIs.
 
 The program is develoepd using IntelliJ IDEA CE as a Scala sbt project. The project structure in Intellij is as below:
-
-![IntelliJ Project Structure](https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png)
-
+<p>
+  <img src="https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png" width="350" alt="IntelliJ Project Structure">
+</p>
