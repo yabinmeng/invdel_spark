@@ -16,6 +16,20 @@ The program is develoepd using IntelliJ IDEA CE as a Scala sbt project. The proj
   <img src="https://github.com/yabinmeng/invdel_spark/blob/master/src/resources/intellij_project.png" width="300" alt="IntelliJ Project Structure">
 </p>
 
+## Program Constants
+For simplicity purpose, there are four paramaters that are hard-coded in the program:
+- C* keyspace name
+- C* facility table name
+- C* inventory table name
+- DSE spark node IP
+```
+  val inv_keyspace = "<C*_keyspace_name>"
+  val facility_detail_tbl = "<C*_facility_table_name>"
+  val inventory_tbl = "<C*_inventory_table_name>"
+  val dseSparkHostIp = "<DSE_Spark_Node_IP>"
+```  
+
+Further improvement can be made to read these values from either as command line parameters or from a property file.
 
 ## Program Execution
 The program is intended un as a Spark job that will be submitted to a DSE Anlytics cluster for execution. Data stored in C* table is read/updated/delted in Spark by utilizing Spark-Cassandra connector APIs.
@@ -33,4 +47,7 @@ You can specify both parameters at the same time, but not none!
 
 
 ## Build a Uber Jar
-In order 
+In order to submit the program properly, a Uber jar is needed. This is achieved through "sbt-assembly" plugin as described in **assembly.sbt** file, as below:
+```
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.9")
+```
