@@ -40,8 +40,9 @@ object InventoryCleanup extends App {
     System.exit(20)
   }
 
-  println("store_name = " + store_name)
-  println("division_name = " + division_name)
+  //=== Debug purpose ===
+  //println("store_name = " + store_name)
+  //println("division_name = " + division_name)
 
   case class FacilityDetail
   (
@@ -107,4 +108,6 @@ object InventoryCleanup extends App {
 
   // Delete the selected items
   inventoryDF.rdd.deleteFromCassandra(inv_keyspace, current_item_balance_tbl)
+
+  println("Inventory deletion for store/division (" + store_name + "/" + division_name + ") completes!" )
 }
