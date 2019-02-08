@@ -108,6 +108,8 @@ object InventoryCleanup extends App {
 
   // Delete the selected items
   inventoryDF.rdd.deleteFromCassandra(inv_keyspace, current_item_balance_tbl)
-
   println("Inventory deletion for store/division (" + store_name + "/" + division_name + ") completes!" )
+
+  spark.close()
+  System.exit(0)
 }
