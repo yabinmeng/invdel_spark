@@ -10,7 +10,7 @@ object InventoryCleanup extends App {
 
   val inv_keyspace = "inventory_balance"
   val facility_detail_tbl = "facility_detail_by_facility_id"
-  val current_item_balance_tbl = "current_item_balance_by_base_upc"
+  val inventory_tbl = "current_item_balance_by_base_upc"
   val dseSparkHostIp = "172.31.95.157"
 
 
@@ -96,7 +96,7 @@ object InventoryCleanup extends App {
   //   the selected list from above
   var inventoryDF = spark
     .read
-    .cassandraFormat(current_item_balance_tbl, inv_keyspace)
+    .cassandraFormat(inventory_tbl, inv_keyspace)
     .options(ReadConf.SplitSizeInMBParam.option(32))
     .load()
     .select("facility_id", "base_upc", "location")
@@ -106,8 +106,8 @@ object InventoryCleanup extends App {
   // == Debug purpose ==
   //inventoryDF.show()
 
-  // Delete the selected items
-  inventoryDF.rdd.deleteFromCassandra(inv_keyspace, current_item_balance_tbl)
+  // Delete the inventories satisfying the store/division conditions
+  inventoryDF.rdd.deleteFromCassandra(inv_keyspace, inventory_tbl)
   println("Inventory deletion for store/division (" + store_name + "/" + division_name + ") completes!" )
 
   spark.close()
