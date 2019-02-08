@@ -51,3 +51,8 @@ In order to submit the program properly, a Uber jar is needed. This is achieved 
 ```
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.9")
 ```
+
+Then from command line, at the home folder of the project, run the following command:
+```
+sbt assembly
+```
