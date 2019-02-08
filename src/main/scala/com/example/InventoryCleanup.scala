@@ -60,7 +60,7 @@ object InventoryCleanup extends App {
 
   import spark.implicits._
 
-  // read facility details info, by the store and division
+  // read facility info, by the store and division
   //   info that are provided as input parameters
   var facilityDetailDF = spark
       .read
@@ -92,7 +92,7 @@ object InventoryCleanup extends App {
 
 
 
-  // read current_item_balance table with all facilities that match
+  // read inventory table with all facilities that match
   //   the selected list from above
   var inventoryDF = spark
     .read
