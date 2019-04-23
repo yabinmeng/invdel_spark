@@ -11,14 +11,12 @@ object InventoryCleanup extends App {
   val inv_keyspace = "<C*_keyspace_name>"
   val facility_detail_tbl = "<C*_facility_table_name>"
   val inventory_tbl = "<C*_inventory_table_name>"
-  val dseSparkHostIp = "<DSE_Spark_Node_IP>"
-
 
   val usage = """
-    Usage: InventoryCleanup [--sto "<store_name>"] [--div "<division_name>"]
+    Usage: InventoryCleanup --nodeip <"dse_analytics_node_ip> [--sto "<store_name>"] [--div "<division_name>"]
   """
 
-  if ( (args.length != 2) && (args.length != 4) ) {
+  if ( (args.length != 4) && (args.length != 6) ) {
     println("\nIncorrect input parameter numbers!")
     println(usage)
     System.exit(10)
@@ -26,21 +24,24 @@ object InventoryCleanup extends App {
 
   def isEmptyStr(x: String) = Option(x).forall(_.isEmpty)
 
+  val dseSparkHostIp = ""
   var store_name = ""
   var division_name = ""
 
   args.sliding(2, 2).toList.collect {
+    case Array("--nodeip", sparkNodeIp: String) => dseSparkHostIp = sparkNodeIp
     case Array("--sto", argStore: String) => store_name = argStore
     case Array("--div", argDivision: String) => division_name = argDivision
   }
 
-  if ( isEmptyStr(store_name) && isEmptyStr(division_name) ) {
+  if ( isEmptyStr(dseSparkHostIp) || (isEmptyStr(store_name) && isEmptyStr(division_name)) ) {
     println("\nIncorrect input parameter values!")
     print(usage)
     System.exit(20)
   }
 
   //=== Debug purpose ===
+  //println("dseSparkHostIp = " + dseSparkHostIp)
   //println("store_name = " + store_name)
   //println("division_name = " + division_name)
 
