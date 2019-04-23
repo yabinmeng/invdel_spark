@@ -21,12 +21,10 @@ For simplicity purpose, there are four paramaters that are hard-coded in the pro
 - C* keyspace name
 - C* facility table name
 - C* inventory table name
-- DSE spark node IP
 ```
   val inv_keyspace = "<C*_keyspace_name>"
   val facility_detail_tbl = "<C*_facility_table_name>"
   val inventory_tbl = "<C*_inventory_table_name>"
-  val dseSparkHostIp = "<DSE_Spark_Node_IP>"
 ```  
 
 Further improvement can be made to read these values from either as command line parameters or from a property file.
@@ -36,14 +34,16 @@ The program is intended to run as a Spark job that will be submitted to a DSE An
 
 The command to submit the job is something like below:
 ```
-dse spark-submit --class com.example.InventoryCleanup invdel_spark-assembly-1.0.jar --sto <store_name> --div <divsion_name>
+dse spark-submit --class com.example.InventoryCleanup invdel_spark-assembly-1.0.jar --nodeip <dse_analytics_node_ip> --sto <store_name> --div <divsion_name>
 ```
 
-The program accepts 2 input parameters:
+The program accepts 3 input parameters:
+- **--nodeip <dse_analytics_node_ip>**: specify the IP address of a DSE analytics (Spark) node.
+This parameter is mandatory. 
+
 - **--sto <store_name>**: specific store name of which the inventory to be deleted
 - **--div <division_name>**: specific division name of which the inventory to be deleted
-
-You can specify both parameters at the same time, but not none!
+For these 2 parameters, you need to specify at least one of them.
 
 
 ## Build a Uber Jar
