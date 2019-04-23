@@ -13,7 +13,7 @@ object InventoryCleanup extends App {
   val inventory_tbl = "<C*_inventory_table_name>"
 
   val usage = """
-    Usage: InventoryCleanup --nodeip <"dse_analytics_node_ip> [--sto "<store_name>"] [--div "<division_name>"]
+    Usage: InventoryCleanup --nodeip "<dse_analytics_node_ip>" [--sto "<store_name>"] [--div "<division_name>"]
   """
 
   if ( (args.length != 4) && (args.length != 6) ) {
