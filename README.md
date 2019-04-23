@@ -39,10 +39,13 @@ dse spark-submit --class com.example.InventoryCleanup invdel_spark-assembly-1.0.
 
 The program accepts 3 input parameters:
 - **--nodeip <dse_analytics_node_ip>**: specify the IP address of a DSE analytics (Spark) node.
+
 This parameter is mandatory. 
+
 
 - **--sto <store_name>**: specific store name of which the inventory to be deleted
 - **--div <division_name>**: specific division name of which the inventory to be deleted
+
 For these 2 parameters, you need to specify at least one of them.
 
 
