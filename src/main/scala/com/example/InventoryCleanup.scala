@@ -24,7 +24,7 @@ object InventoryCleanup extends App {
 
   def isEmptyStr(x: String) = Option(x).forall(_.isEmpty)
 
-  val dseSparkHostIp = ""
+  var dseSparkHostIp = ""
   var store_name = ""
   var division_name = ""
 
